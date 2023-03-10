@@ -23,7 +23,6 @@ CORS(app)
 Migrate(app, db)
 
 # Models
-
 class Car(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     make = db.Column(db.String(255), nullable = False)
@@ -34,8 +33,12 @@ class Car(db.Model):
         return f"{self.year} {self.make} {self.model}"
 
 # Schemas
+class CarSchema(ma.Schema):
+    class Meta:
+        fields = ("id", "make", "model", "year")
 
-
+car_schema = CarSchema()
+cars_schema = CarSchema(many = True)
 
 # Resources
 
