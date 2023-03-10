@@ -41,7 +41,8 @@ car_schema = CarSchema()
 cars_schema = CarSchema(many = True)
 
 # Resources
-
+class CarListResource(Resource):
+    
 
 
 # Routes
